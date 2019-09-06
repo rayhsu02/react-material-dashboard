@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '@material-ui/core/Button';
 import CssBaseline from '@material-ui/core/CssBaseline';
@@ -54,8 +55,13 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-export default function SignIn() {
+function SignIn(props) {
     const classes = useStyles();
+
+    function handleSingIn(e) {
+        e.preventDefault();
+        props.history.push('/dashboard');
+    }
 
     return (
         <Container component="main" maxWidth="xs">
@@ -100,6 +106,7 @@ export default function SignIn() {
                         variant="contained"
                         color="primary"
                         className={classes.submit}
+                        onClick={handleSingIn}
                     >
                         Sign In
           </Button>
@@ -123,3 +130,5 @@ export default function SignIn() {
         </Container>
     );
 }
+
+export default withRouter(SignIn);
