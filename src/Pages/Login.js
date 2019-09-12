@@ -23,7 +23,7 @@ function Copyright() {
                 Your Website
       </Link> */}{" "}
             {new Date().getFullYear()}
-            {". Built with appmission"}
+            {". Built with appmission LLC"}
             {/* <Link color="inherit" href="https://material-ui.com/">
                 Material-UI.
       </Link> */}
