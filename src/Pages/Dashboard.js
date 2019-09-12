@@ -184,7 +184,8 @@ export default function Dashboard() {
                         </Grid>
                         <Grid item xs={12} md={4} lg={4}>
                             <Paper className={fixedHeightPaper}>
-                                <Skeleton height={150} />
+                                <Skeleton height={100} />
+                                <Skeleton count={2} />
                             </Paper>
                         </Grid>
                         <Grid item xs={12} md={4} lg={4}>
