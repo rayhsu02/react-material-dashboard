@@ -18,6 +18,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
 import { mainListItems, secondaryListItems } from './listitems';
+import Skeleton from 'react-loading-skeleton';
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
@@ -177,55 +178,57 @@ export default function Dashboard() {
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
                             <Paper className={classes.paper}>
-                                {/* <Orders /> */}
+                                <Skeleton circle={true} height={100} width={100} />
+                                <Skeleton height={100} />
                             </Paper>
                         </Grid>
                         <Grid item xs={12} md={4} lg={4}>
                             <Paper className={fixedHeightPaper}>
-                                {/* <Chart /> */}
+                                <Skeleton height={150} />
                             </Paper>
                         </Grid>
                         <Grid item xs={12} md={4} lg={4}>
                             <Paper className={fixedHeightPaper}>
-                                {/* <Chart /> */}
+                                <Skeleton count={10} />
                             </Paper>
                         </Grid>
                         <Grid item xs={12} md={4} lg={4}>
                             <Paper className={fixedHeightPaper}>
-                                {/* <Chart /> */}
+                                <Skeleton count={10} />
                             </Paper>
                         </Grid>
                         <Grid item xs={12} md={4} lg={4}>
                             <Paper className={fixedHeightPaper}>
-                                {/* <Chart /> */}
+                                <Skeleton count={10} />
                             </Paper>
                         </Grid>
                         <Grid item xs={12} md={4} lg={4}>
                             <Paper className={fixedHeightPaper}>
-                                {/* <Chart /> */}
+                                <Skeleton count={10} />
                             </Paper>
                         </Grid>
                         <Grid item xs={12} md={4} lg={4}>
                             <Paper className={fixedHeightPaper}>
-                                {/* <Chart /> */}
+                                <Skeleton count={10} />
                             </Paper>
                         </Grid>
                         {/* Chart */}
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper className={fixedHeightPaper}>
-                                {/* <Chart /> */}
+                                <Skeleton count={10} />
                             </Paper>
                         </Grid>
                         {/* Recent Deposits */}
                         <Grid item xs={12} md={4} lg={3}>
                             <Paper className={fixedHeightPaper}>
-                                {/* <Deposits /> */}
+                                <Skeleton count={10} />
                             </Paper>
                         </Grid>
                         {/* Chart */}
                         <Grid item xs={12} md={8} lg={9}>
                             <Paper className={fixedHeightPaper}>
-                                {/* <Chart /> */}
+                                <Skeleton circle={true} height={50} width={50} />
+                                <Skeleton count={10} />
                             </Paper>
                         </Grid>
                         {/* Recent Deposits */}
