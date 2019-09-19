@@ -13,6 +13,7 @@ import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import Typography from "@material-ui/core/Typography";
 import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
+import GoogleLogin from 'react-google-login';
 
 
 function Copyright() {
@@ -65,16 +66,26 @@ function SignIn(props) {
         props.history.push("/dashboard");
     };
 
+    const responseGoogle  =(response) => {
+        console.log(response);
+    };
+
     return (
         <Container component="main" maxWidth="xs">
             <CssBaseline />
             <div className={classes.paper}>
+                
                 <Avatar className={classes.avatar}>
                     <LockOutlinedIcon />
                 </Avatar>
                 <Typography component="h1" variant="h5">
                     Sign in
         </Typography>
+
+        <GoogleLogin clientId='85547769219-4ebbj6g3r51oqj9jkfcvine1mbdkntch.apps.googleusercontent.com'
+                buttonText="LOGIN WITH GOOGLE" 
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}/>
                 <form className={classes.form} noValidate>
                     <TextField
                         variant="outlined"
