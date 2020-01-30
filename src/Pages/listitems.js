@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
@@ -70,65 +71,68 @@ export const secondaryListItems = (
 );
 
 export const sideMainMenu = [
-  {name: 'Dashboard',
-  icon:'AssigmentIcon',
-  subMenu: [
-    {name: 'ds'},
-    {name: 'ds2'},
-    {name: 'Tables3'},
-    {name: 'Tables4'}
-  ]
-},
-  {name: 'Orders',
-  icon:'AssigmentIcon'},
-  {name: 'Customers',
-  icon:'AssigmentIcon'},
-  {name: 'Reports',
-  icon:'AssigmentIcon',
-  subMenu: [
-    {name: 'Tables1'},
-    {name: 'Tables2'},
-    {name: 'Tables3'},
-    {name: 'Tables4'}
-  ]},
+  {
+    name: "Dashboard",
+    icon: "AssigmentIcon",
+    subMenu: [
+      { name: "ds" },
+      { name: "ds2" },
+      { name: "Tables3" },
+      { name: "Tables4" }
+    ]
+  },
+  { name: "Orders", icon: "AssigmentIcon" },
+  { name: "Customers", icon: "AssigmentIcon" },
+  {
+    name: "Reports",
+    icon: "AssigmentIcon",
+    subMenu: [
+      { name: "Tables1" },
+      { name: "Tables2" },
+      { name: "Tables3" },
+      { name: "Tables4" }
+    ]
+  }
 ];
 
-export const renderSubMenu = (mainMenuName) =>{
-  const subitems = sideMainMenu.find((item)=> item.name === mainMenuName)
-  
-  return subitems.subMenu.map((i) =>{
+export const renderSubMenu = mainMenuName => {
+  const subitems = sideMainMenu.find(item => item.name === mainMenuName);
+
+  return subitems.subMenu.map(i => {
     return (
       <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary={i.name} />
-    </ListItem>
-    )
-  })
-}
+        <ListItemIcon>
+          <AssignmentIcon />
+        </ListItemIcon>
+        <ListItemText primary={i.name} />
+      </ListItem>
+    );
+  });
+};
 
- function render2ndMenu(name){
-  const subitems = sideMainMenu.find((item)=> item.name === name)
-  
-  return subitems.subMenu.map((i) =>{
+function render2ndMenu(name) {
+  const subitems = sideMainMenu.find(item => item.name === name);
+
+  return subitems.subMenu.map(i => {
     return (
       <ListItem button>
-      <ListItemIcon>
-        <AssignmentIcon />
-      </ListItemIcon>
-      <ListItemText primary={i.name} />
-    </ListItem>
-    )
-  })
+        <ListItemIcon>
+          <AssignmentIcon />
+        </ListItemIcon>
+        <ListItemText primary={i.name} />
+      </ListItem>
+    );
+  });
 }
 
-export const renderMainMenu = sideMainMenu.map((item)=>{
-  return  (<ListItem button>
-  <ListItemIcon>
-    <DashboardIcon />
-  </ListItemIcon>
-  <ListItemText primary= {item.name} onClick={render2ndMenu('Dashboard')}/>
-</ListItem>)
-})
-
+export const renderMainMenu = sideMainMenu.map(item => {
+  return (
+    <ListItem button>
+      <ListItemIcon>
+        <DashboardIcon />
+      </ListItemIcon>
+      <ListItemText primary={item.name} onClick={render2ndMenu("Dashboard")} />
+      <Link to="/checkout">Checkout</Link>
+    </ListItem>
+  );
+});

@@ -17,8 +17,11 @@ import Link from '@material-ui/core/Link';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import NotificationsIcon from '@material-ui/icons/Notifications';
+import AppsIcon from '@material-ui/icons/Apps';
 import { mainListItems, secondaryListItems, renderMainMenu, renderSubMenu } from './listitems';
 import Skeleton from 'react-loading-skeleton';
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
@@ -123,6 +126,7 @@ const useStyles = makeStyles(theme => ({
 export default function Dashboard() {
     const classes = useStyles();
     const [open, setOpen] = React.useState(true);
+    const [anchorEl, setAnchorEl] = React.useState(null);
     const handleDrawerOpen = () => {
         setOpen(true);
     };
@@ -130,6 +134,14 @@ export default function Dashboard() {
         setOpen(false);
     };
     const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+
+    const handleClick = event => {
+        setAnchorEl(event.currentTarget);
+      };
+    
+      const handleClose = () => {
+        setAnchorEl(null);
+      };
 
     return (
         <div className={classes.root}>
@@ -153,6 +165,20 @@ export default function Dashboard() {
                             <NotificationsIcon />
                         </Badge>
                     </IconButton>
+                    <IconButton color="inherit" onClick={handleClick}>
+                        <AppsIcon/>
+                    </IconButton>
+                    <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}>Profile</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
+      </Menu>
                 </Toolbar>
             </AppBar>
             <Drawer
